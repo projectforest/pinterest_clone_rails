@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   # root 'welcome#index'
 
 
-  resources :pins
+  resources :pins do
+    member do
+      put "like", to: "pins#upvote"
+    end
+  end
 
   root "pins#index"
   # Example of regular route:
